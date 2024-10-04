@@ -5,6 +5,5 @@ export default async function getUser(userId: string) {
 
     if(!res.ok) throw new Error('Failed to fecth User')
 
-  return res.json
-  
+  return res.json()
 }

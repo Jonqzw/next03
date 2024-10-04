@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import getAllUseres from "@/lib/getAllUseres";
+import getAllUseres from "@/lib/getAllUsers";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -9,9 +9,9 @@ export const metadata: Metadata = {
 import React from "react";
 
 export default async function UsersPage() {
-  const userData: Promise<User[]> = getAllUseres();
+  const usersData: Promise<User[]> = getAllUseres();
 
-  const users = await userData;
+  const users = await usersData;
 
   console.log('Hello')
 
@@ -21,11 +21,11 @@ export default async function UsersPage() {
         <Link href="/">Back to Home</Link>
       </h2>
       <br />
-      {users.map((user) => {
+      {users.map(user => {
         return (
           <>
             <p key={user.id}>
-              <Link href={"/users/${user.id"}>{user.name}</Link>
+              <Link href={`/users/${user.id}`}>{user.name}</Link>
             </p>
             <br />
           </>
